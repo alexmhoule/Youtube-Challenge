@@ -25,12 +25,10 @@ $(document).ready(function () {
 
 			/* Display YouTube - Hint check quiz app just like loading quiz data - */
 
-			var playlist = response.results.items;
-
-			if (playlist) {
-				$.each(playlist, function(index, item) {
-					displayResult(item.snippet);
-				});
+			function displayResults(videoSnippet) {
+				var title = videoSnippet.title;
+				var videoId = videoSnippet.resourceId.videoId;
+				$('#videoContainer').append('<p>' + title + ' - ' + videoId + '</p>');
 			}
 			
 		}).error(function (error) {
