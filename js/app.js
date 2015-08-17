@@ -6,7 +6,7 @@ $(document).ready(function () {
 		} else {
 			alert("Please enter something to search for");
 		}
-	});
+	});  
 
 	function loadAjax() {
 	
@@ -21,7 +21,18 @@ $(document).ready(function () {
 			url: "https://www.googleapis.com/youtube/v3/search",
 			data: data
 		}).done(function (results) {
-			console.log(results); /* Display YouTube - Hint check quiz app just like loading quiz data - */
+			console.log(results); 
+
+			/* Display YouTube - Hint check quiz app just like loading quiz data - */
+
+			var playlist = response.results.items;
+
+			if (playlist) {
+				$.each(playlist, function(index, item) {
+					displayResult(item.snippet);
+				});
+			}
+			
 		}).error(function (error) {
 			console.log(error);
 		});
