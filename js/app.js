@@ -1,8 +1,9 @@
 $(document).ready(function () {
 
 	$('#submit').click(function () {
-		if($('#search-Term').val().length!=0){
+		if($('#search').val().length!=0){
 			loadAjax();
+			console.log($('#search').val());
 		} else {
 			alert("Please enter something to search for");
 		}
@@ -14,7 +15,7 @@ $(document).ready(function () {
 			part: 'snippet',
 			key: 'AIzaSyBg6j7YewqXfEbWEQxTW7CoAOh72QMkSTA',
 			maxResults: 50,
-			q: $('#search-Term').val()
+			q: $('#search').val()
 		};
 
 		$.ajax({
