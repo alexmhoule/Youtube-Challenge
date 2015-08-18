@@ -1,6 +1,13 @@
 $(document).ready(function () {
 
-	$('#submit').click(function () {
+	function video (videoId, thumbnails, title) {
+		this.videoId = videoId;
+		this.thumbnails = thumbnails;
+		this.title = title;
+	}
+
+	$('#submit').click(function (event) {
+		event.preventDefault();
 		if($('#search').val().length!=0){
 			loadAjax();
 			console.log($('#search').val());
@@ -26,12 +33,12 @@ $(document).ready(function () {
 
 			/* Display YouTube - Hint check quiz app just like loading quiz data - */
 
-			function displayResults(videoSnippet) {
-				var title = videoSnippet.title;
-				var videoId = videoSnippet.resourceId.videoId;
-				$('#videoContainer').append('<p>' + title + ' - ' + videoId + '</p>');
-			}
-			
+			function loadVideos () {
+				$('#videoContainer').attr('src', videoId);
+				$('#videoContainer').attr('src', thumbnails);
+				$('#videoContainer').text('src', title);
+			}		
+
 		}).error(function (error) {
 			console.log(error);
 		});
