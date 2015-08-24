@@ -1,13 +1,13 @@
 $(document).ready(function () {
 
 	$('#videoContainer').hide();
-	var vidId = $(this).attr('id');
 
 	$('#submit').click(function (event) {
 		event.preventDefault();
 		if($('#search').val().length!=0){
 			loadAjax();
-			$('#prevList').append('<li>' + $('#search').val() + '</li>')
+			$('#thumbnail').empty();
+			$('#prevList').append('<li>' + $('#search').val() + '</li>');
 		} else {
 			alert("Please enter something to search for");
 		}
@@ -18,7 +18,8 @@ $(document).ready(function () {
 		$('#thumbnail').show();
 		$('#prevList').show();
 		$('#previousSearch').show();
-	})
+		$('#display').empty();
+	});
 
 	$('#thumbnail').on("click", ".videoThumbnail", function (index, value) {
 		/* get the video id -- .attr(), create embed code, append to HTML video code hide thumbnail -- think line 36 */
@@ -27,7 +28,8 @@ $(document).ready(function () {
 		$('#prevList').hide();
 		$('#previousSearch').hide();
 		var vidId = $(this).attr('id');
-		console.log(vidId);
+		var vidTitle = $(this).attr('title');
+		console.log(vidTitle);
 		$('#display').append('<iframe width="560" height="315" src="https://www.youtube.com/embed/' + vidId + '" frameborder="0" allowfullscreen></iframe>');
 
 	});
