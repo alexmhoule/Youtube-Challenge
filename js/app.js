@@ -1,14 +1,36 @@
 $(document).ready(function () {
 
+	$('#videoContainer').hide();
+	var vidId = $(this).attr('id');
+
 	$('#submit').click(function (event) {
 		event.preventDefault();
 		if($('#search').val().length!=0){
 			loadAjax();
-			console.log($('#search').val());
+			$('#prevList').append('<li>' + $('#search').val() + '</li>')
 		} else {
 			alert("Please enter something to search for");
 		}
 	}); 
+
+	$('#back').click(function (){
+		$('#videoContainer').hide();
+		$('#thumbnail').show();
+		$('#prevList').show();
+		$('#previousSearch').show();
+	})
+
+	$('#thumbnail').on("click", ".videoThumbnail", function (index, value) {
+		/* get the video id -- .attr(), create embed code, append to HTML video code hide thumbnail -- think line 36 */
+		$('#videoContainer').show();
+		$('#thumbnail').hide();
+		$('#prevList').hide();
+		$('#previousSearch').hide();
+		var vidId = $(this).attr('id');
+		console.log(vidId);
+		$('#display').append('<iframe width="560" height="315" src="https://www.youtube.com/embed/' + vidID + '" frameborder="0" allowfullscreen></iframe>');
+
+	});
 
 	function loadAjax() {
 	
@@ -27,13 +49,12 @@ $(document).ready(function () {
 
 			/* Display YouTube - Hint check quiz app just like loading quiz data - */
 
-			if(Array==Array.length) {
-				end();
-			} else {
-				results.items;
-				/* $.get("https://www.youtube.com/embed/" + videoId) */
-				console.log(results.items);
-			}		
+			if(results.items.length>0) {
+				$.each(results.items, function (index, value) {
+					$('#thumbnail').append('<img class="videoThumbnail" id="'+ value.id.videoId +'" src="' + value.snippet.thumbnails.default.url + '"/>')
+				});	
+			}
+					
 
 		}).error(function (error) {
 			console.log(error);
