@@ -28,7 +28,7 @@ $(document).ready(function () {
 		$('#previousSearch').hide();
 		var vidId = $(this).attr('id');
 		console.log(vidId);
-		$('#display').append('<iframe width="560" height="315" src="https://www.youtube.com/embed/' + vidID + '" frameborder="0" allowfullscreen></iframe>');
+		$('#display').append('<iframe width="560" height="315" src="https://www.youtube.com/embed/' + vidId + '" frameborder="0" allowfullscreen></iframe>');
 
 	});
 
