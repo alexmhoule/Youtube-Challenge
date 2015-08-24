@@ -1,0 +1,40 @@
+.searchDiv {
+	background-color: #00688B;
+	height: 73.25rem;
+}
+
+.thumbnailDiv {
+	background-color: #B7C3D0;
+	height: 67.6rem;
+	text-align: center;
+}
+
+.displayScreen {
+	position: fixed;
+	height: 73rem;
+	width: 100%;
+	color: #000;
+	text-align: center;
+	background-color: #000;
+}
+
+.videoInfo{
+	margin-top: 13rem;
+}
+
+.search{
+	margin-top: 3rem;
+	font-weight: bold;
+}
+
+.searchbar{
+	margin-top: 3rem;
+	text-align: center;
+}
+
+.searchbarDiv{
+	background-color: #B7C3D0;
+	text-align: center;
+}
+
+
