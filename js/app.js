@@ -22,7 +22,6 @@ $(document).ready(function () {
 	});
 
 	$('#thumbnail').on("click", ".videoThumbnail", function (index, value) {
-		/* get the video id -- .attr(), create embed code, append to HTML video code hide thumbnail -- think line 36 */
 		$('#videoContainer').show();
 		$('#thumbnail').hide();
 		$('#prevList').hide();
@@ -47,9 +46,7 @@ $(document).ready(function () {
 			url: "https://www.googleapis.com/youtube/v3/search",
 			data: data
 		}).done(function (results) {
-			console.log(results); 
-
-			/* Display YouTube - Hint check quiz app just like loading quiz data - */
+			console.log(results);
 
 			if(results.items.length>0) {
 				$.each(results.items, function (index, value) {
